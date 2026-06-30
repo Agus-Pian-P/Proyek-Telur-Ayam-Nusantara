@@ -71,33 +71,23 @@
 </head>
 <body>
 
-    /* Styling Header & Navigasi (Sangat Spesifik) */
-header { 
-    background-color: #ff9800; 
-    color: white; 
-    padding: 15px 50px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
+   <header>
+        <!-- Logo aplikasi menggunakan tag <img> -->
+        <div style="display: flex; align-items: center;">
+            <img src="logo.jpg" alt="Logo" width="40" style="margin-right: 10px;">
+            <h1>Telur Ayam Nusantara</h1>
+        </div>
 
-/* Memastikan menu di header berjejer horizontal */
-header nav ul { 
-    list-style-type: none; 
-    margin: 0; 
-    padding: 0; 
-    display: flex; /* Ini membuat menu jadi horizontal */
-}
-
-header nav ul li { 
-    margin-left: 20px; 
-}
-
-header nav ul li a { 
-    color: white; 
-    text-decoration: none; 
-    font-weight: bold; 
-}
+        <!-- Menu navigasi menggunakan <nav> dan <ul> <li> -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="katalog.html">Transaksi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="tracking-container">
         <h2>Lacak Pesanan Anda</h2>

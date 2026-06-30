@@ -6,11 +6,26 @@
     <title>Telur Ayam Nusantara - Marketplace</title>
     <style>
         /* Pengaturan Dasar CSS */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background-color: #ff9800; color: white; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 24px; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; transition: color 0.3s; }
-        nav a:hover { color: #ffe0b2; }
+        /* Styling Header & Navigasi */
+        header { 
+            background-color: #ff9800; color: white; padding: 15px 50px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        
+        /* Menghilangkan titik list dan membuat menu sejajar horizontal */
+        header nav ul { 
+            list-style-type: none; margin: 0; padding: 0; display: flex; 
+        }
+        
+        /* Memberi jarak antar menu */
+        header nav li { margin-left: 20px; }
+        
+        /* Styling link agar bisa diklik dan terlihat profesional */
+        header nav a { 
+            color: white; text-decoration: none; font-weight: bold; transition: 0.3s; 
+        }
+        header nav a:hover { color: #ffe0b2; }
         
         /* Bagian Hero */
         .hero {
@@ -68,12 +83,20 @@
 <body>
 
     <header>
-        <h1>🥚 Telur Ayam Nusantara</h1>
+        <!-- Logo aplikasi menggunakan tag <img> -->
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="Logo" width="40" style="margin-right: 10px;">
+            <h1>Telur Ayam Nusantara</h1>
+        </div>
+
+        <!-- Menu navigasi menggunakan <nav> dan <ul> <li> -->
         <nav>
-            <a href="index.html">Beranda</a>
-            <a href="katalog.html">Katalog</a>
-            <a href="tracking.html">Tracking</a>
-            <a href="login.html">Login / Daftar</a>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="katalog.html">Transaksi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
         </nav>
     </header>
 

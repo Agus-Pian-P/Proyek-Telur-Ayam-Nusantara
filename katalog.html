@@ -96,6 +96,33 @@
             .invoice-wrapper { position: absolute; left: 0; top: 0; width: 100%; padding: 0;}
             header, .btn-cetak { display: none !important; }
         }
+        /* Styling Header & Navigasi (Sangat Spesifik) */
+header { 
+    background-color: #ff9800; 
+    color: white; 
+    padding: 15px 50px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Memastikan menu di header berjejer horizontal */
+header nav ul { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; /* Ini membuat menu jadi horizontal */
+}
+
+header nav ul li { 
+    margin-left: 20px; 
+}
+
+header nav ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
     </style>
 </head>
 <body>

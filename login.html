@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <!-- TAMBAHAN: Meta Viewport agar responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Daftar - Telur Ayam Nusantara.</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #e0f7fa; padding-bottom: 50px; }
+        header { background-color: #ff9800; color: white; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        
+        .auth-container {
+            max-width: 400px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        
+        .tab-header { display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
+        .tab-btn { background: none; border: none; padding: 10px 20px; font-size: 18px; font-weight: bold; color: #777; cursor: pointer; width: 50%; transition: color 0.3s, border-bottom 0.3s; }
+        .tab-btn.active { color: #2196F3; border-bottom: 3px solid #2196F3; }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        
+        .btn-submit { background-color: #2196F3; color: white; padding: 12px; border: none; width: 100%; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 10px; }
+        .btn-submit:hover { background-color: #1976D2; }
+        
+        header nav ul { list-style-type: none; margin: 0; padding: 0; display: flex; }
+        header nav ul li { margin-left: 20px; }
+        header nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+
+        /* ======================================================= */
+        /* TAMBAHAN TUGAS: CSS MEDIA QUERY UNTUK RESPONSIVITAS LOGIN*/
+        /* ======================================================= */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px 20px; text-align: center; }
+            header nav ul { flex-wrap: wrap; justify-content: center; margin-top: 15px; }
+            header nav ul li { margin-left: 10px; margin-right: 10px; margin-bottom: 10px; }
+            .auth-container { margin: 30px 15px; padding: 20px; width: calc(100% - 30px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.jpeg" alt="Logo" style="height: 50px;">
+            <h2 style="color: white; margin: 0;">Telur Ayam Nusantara</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="transaksi.html">Transaksi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="auth-container">
+        <div class="tab-header">
+            <button id="btn-login" class="tab-btn active" onclick="bukaTab('login')">Masuk</button>
+            <button id="btn-daftar" class="tab-btn" onclick="bukaTab('daftar')">Daftar</button>
+        </div>
+
+        <form id="form-login">
+            <div class="form-group">
+                <label>Masuk Sebagai</label>
+                <select required>
+                    <option value="pembeli">Pembeli</option>
+                    <option value="peternak">Peternak</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" placeholder="Masukkan Username" required>
+            </div>
+            <div class="form-group">
+                <label>Kata Sandi</label>
+                <input type="password" placeholder="Masukkan kata sandi" required>
+            </div>
+            <button type="button" class="btn-submit" onclick="simulasiLogin()">Masuk</button>
+        </form>
+
+        <form id="form-daftar" style="display: none;">
+            <div class="form-group">
+                <label>Daftar Sebagai</label>
+                <select required>
+                    <option value="pembeli">Pembeli</option>
+                    <option value="peternak">Peternak</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="reg-nama" placeholder="Sesuai KTP" required>
+            </div>
+            <div class="form-group">
+                <label>Nomor WhatsApp</label>
+                <input type="tel" id="reg-wa" placeholder="Contoh: 085777774111" required>
+            </div>
+            <div class="form-group">
+                <label>Alamat Lengkap</label>
+                <textarea id="reg-alamat" rows="3" placeholder="Nama Jalan, RT/RW, Kelurahan, Kecamatan, Kota" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Kata Sandi Baru</label>
+                <input type="password" placeholder="Buat kata sandi" required>
+            </div>
+            <button type="button" class="btn-submit" onclick="simulasiDaftar()">Daftar Sekarang</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; Agus Pian Pracahyo - 251011750187 &copy;</p>
+        <p>Promo: Follow IG & TikTok Kami Untuk Flash Sale Spesial!</p>
+    </footer>
+
+    <script>
+        function bukaTab(jenisTab) {
+            let formLogin = document.getElementById("form-login");
+            let formDaftar = document.getElementById("form-daftar");
+            let btnLogin = document.getElementById("btn-login");
+            let btnDaftar = document.getElementById("btn-daftar");
+
+            if (jenisTab === 'login') {
+                formLogin.style.display = "block";
+                formDaftar.style.display = "none";
+                btnLogin.classList.add("active");
+                btnDaftar.classList.remove("active");
+            } else {
+                formLogin.style.display = "none";
+                formDaftar.style.display = "block";
+                btnLogin.classList.remove("active");
+                btnDaftar.classList.add("active");
+            }
+        }
+
+        function simulasiLogin() {
+            alert("Berhasil Masuk Ke Akun Anda! Mengalihkan ke Halaman Beranda");
+            window.location.href = "index.html";
+        }
+
+        function simulasiDaftar() {
+            let nama = document.getElementById("reg-nama").value;
+            let wa = document.getElementById("reg-wa").value;
+            let alamat = document.getElementById("reg-alamat").value;
+
+            if (nama === "" || wa === "" || alamat === "") {
+                alert("Harap lengkapi Nama, Nomor WA, dan Alamat terlebih dahulu!");
+            } else {
+                alert(`Pendaftaran Berhasil!\nSelamat datang, ${nama}. Akun Anda telah aktif.`);
+                bukaTab('login');
+            }
+        }
+    </script>
+</body>
+</html>

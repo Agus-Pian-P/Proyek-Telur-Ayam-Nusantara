@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - Telur Ayam Nusantara</title>
+    <style>
+    * { box-sizing: border-box; }
+    
+    /* 1. PERBAIKAN: Font disamakan dengan Beranda (Arial) agar ukurannya konsisten */
+    body { 
+        font-family: Arial, sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        overflow-x: hidden; 
+        background-color: #f4f4f4; 
+    }
+    
+    header { 
+        background-color: #ff9800; 
+        color: white; 
+        padding: 15px 50px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: sticky; 
+        top: 0; 
+        z-index: 100; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    }
+    
+    header nav ul { list-style-type: none; margin: 0; padding: 0; display: flex; }
+    header nav ul li { margin-left: 20px; }
+    
+    /* 2. PERBAIKAN: Mengunci ukuran & ketebalan teks agar sama persis dengan Beranda */
+    header nav ul li a { 
+        color: white; 
+        text-decoration: none; 
+        font-weight: bold; 
+        font-size: 16px; /* Mengunci ukuran teks */
+        transition: color 0.3s; 
+    }
+    header nav ul li a:hover { color: #ffe0b2; }
+
+    /* Kode CSS ke bawahnya tetap sama... */
+    .container { max-width: 600px; margin: 30px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .profile-header { display: flex; align-items: center; border-bottom: 2px dashed #ddd; padding-bottom: 20px; margin-bottom: 20px; }
+    .avatar { width: 80px; height: 80px; background-color: #ffcc80; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin-right: 20px; flex-shrink: 0; }
+    .section-title { font-weight: bold; color: #555; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 14px; }
+    .menu-list { list-style: none; padding: 0; margin: 0; }
+    .menu-list li { padding: 10px 0; cursor: pointer; transition: 0.3s; font-size: 15px; }
+    .menu-list li:hover { color: #ff9800; padding-left: 5px; }
+    .app-desc { margin-top: 40px; padding-top: 20px; border-top: 2px solid #ff9800; font-size: 14px; color: #777; line-height: 1.5; }
+    footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; width: 100%; font-size: 14px; }
+
+    /* CSS Media Query untuk HP */
+    @media (max-width: 768px) {
+        header { flex-direction: column; padding: 15px 20px; text-align: center; }
+        header nav ul { flex-wrap: wrap; justify-content: center; margin-top: 15px; }
+        header nav ul li { margin-left: 10px; margin-right: 10px; margin-bottom: 10px; }
+        .container { margin: 20px 15px; padding: 20px; width: calc(100% - 30px); }
+        .profile-header { flex-direction: column; text-align: center; }
+        .avatar { margin-right: 0; margin-bottom: 15px; }
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.jpeg" alt="Logo" style="height: 50px;">
+            <h2 style="color: white; margin: 0;">Telur Ayam Nusantara</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="transaksi.html">Transaksi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="avatar">👤</div>
+            <div>
+                <h2 style="margin:0;">Telur Ayam Nusantara</h2>
+                <p style="margin:5px 0; color: #666;">unpam.@email.com | <strong>Member Silver 🏆</strong></p>
+            </div>
+        </div>
+
+        <div class="section-title">📦 AKTIVITAS SAYA</div>
+        <ul class="menu-list">
+            <li>📄 Riwayat Transaksi Lengkap</li>
+            <li>❤️ Produk Favorit / Wishlist</li>
+            <li>⭐ Ulasan Saya</li>
+        </ul>
+
+        <div class="section-title">⚙️ PENGATURAN AKUN</div>
+        <ul class="menu-list">
+            <li>👤 Ubah Profil & Biodata</li>
+            <li>📍 Daftar Alamat Pengiriman</li>
+            <li>💳 Rekening Bank & Kartu Saya</li>
+            <li>🔒 Keamanan & Ubah Password</li>
+        </ul>
+
+        <div class="section-title">🎁 PROMO & DUKUNGAN</div>
+        <ul class="menu-list">
+            <li>🎟️ Voucher Diskon (3 Tersedia)</li>
+            <li>🎧 Hubungi Layanan Pelanggan</li>
+            <li style="color: red;">🚪 Keluar Akun (Logout)</li>
+        </ul>
+
+        <div class="app-desc">
+            <p><strong>Tentang Aplikasi:</strong> Telur Ayam Nusantara adalah platform marketplace digital untuk mendistribusikan telur segar langsung dari peternak lokal dengan efisiensi rantai pasok tinggi.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Agus Pian Pracahyo - 251011750187 &copy;</p>
+        <p>Promo: Follow IG & TikTok Kami Untuk Flash Sale Spesial!</p>
+    </footer>
+</body>
+</html>

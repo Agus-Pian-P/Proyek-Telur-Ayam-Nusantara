@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <!-- TAMBAHAN: Meta Viewport agar responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telur Ayam Nusantara - Marketplace</title>
+    <style>
+        /* Pengaturan Dasar CSS */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        header { background-color: #ff9800; color: white; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; font-size: 24px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #ffe0b2; }
+        
+        /* Bagian Hero */
+        .hero {
+            background-image: linear-gradient(rgba(224, 236, 255, 0.8), rgba(255, 243, 224, 0.8)), url('TelurGambar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 2px solid #ffcc80;
+        }
+        .hero h2 { color: #e65100; font-size: 36px; margin-bottom: 20px; }
+
+        /* Pengaturan Section & Container Umum */
+        .section-title { text-align: center; color: #e65100; font-size: 28px; margin-bottom: 30px; }
+        .container { padding: 50px; text-align: center; }
+        .bg-white { background-color: #ffffff; }
+        .bg-light { background-color: #f9f9f9; }
+
+        /* Grid Produk */
+        .product-grid, .info-grid, .farmer-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        
+        .product-card { 
+            background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; width: 220px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        .product-card h3 { margin: 10px 0; color: #333; font-size: 18px; }
+        .product-card p { color: #777; font-size: 14px; margin: 5px 0; }
+        .price { color: #e65100; font-size: 20px; font-weight: bold; margin: 10px 0; }
+        
+        .btn-beli { background-color: #4CAF50; color: white; padding: 10px; border: none; width: 100%; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; transition: background 0.3s; }
+        .btn-beli:hover { background-color: #45a049; }
+
+        /* Info & Keunggulan Card */
+        .info-card { background: white; padding: 20px; border-radius: 8px; width: 280px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #ff9800; }
+        .info-card h3 { color: #e65100; margin-top: 0; }
+        
+        /* Farmer Rating Card */
+        .farmer-card { background: #fff3e0; padding: 20px; border-radius: 8px; width: 250px; border: 1px solid #ffcc80; text-align: center; }
+        .farmer-card h3 { margin: 10px 0 5px 0; color: #333; }
+        .stars { color: #ff9800; font-size: 20px; margin-bottom: 10px;}
+        
+        /* Tentang Kami */
+        .about-text { max-width: 800px; margin: 0 auto; font-size: 16px; color: #555; }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
+        
+        header nav ul { list-style-type: none; margin: 0; padding: 0; display: flex; }
+        header nav ul li { margin-left: 20px; }
+        header nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+
+        /* ========================================================== */
+        /* TAMBAHAN TUGAS: CSS MEDIA QUERY UNTUK RESPONSIVITAS BERANDA*/
+        /* ========================================================== */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px 20px; text-align: center; }
+            header nav ul { flex-wrap: wrap; justify-content: center; margin-top: 15px; }
+            header nav ul li { margin-left: 10px; margin-right: 10px; margin-bottom: 10px; }
+            .hero { padding: 40px 15px; }
+            .hero h2 { font-size: 26px; }
+            .container { padding: 30px 15px; }
+            .product-card, .info-card, .farmer-card { width: 100%; max-width: 340px; }
+            .steps-container { flex-direction: column; align-items: center; }
+            .step-item { width: 100% !important; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+            <img src="logo.jpeg" alt="Logo" style="height: 50px;">
+            <h2 style="color: white; margin: 0;">Telur Ayam Nusantara</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="transaksi.html">Transaksi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Pusat Telur Segar</h2>
+        <p>Menghubungkan Anda Langsung Dengan Peternak Terbaik, Tanpa Antri Dan Langsung Diantar Ke Depan Pintu Rumah Anda !</p>
+        <button class="btn-beli" onclick="window.location.href='transaksi.html'" style="width: auto; padding: 10px 25px; font-size: 16px;">Belanja Sekarang</button>
+    </section>
+
+    <section class="container bg-white">
+        <h2 class="section-title">Etalase Telur Pilihan</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Promo - Telur Ayam Negeri (1 Kg)</h3>
+                <p>Peternak: Nusantara Farm (Kota Bogor)</p>
+                <p>Stok: 100 Tray</p>
+                <p class="price">Rp 28.500</p>
+                <button class="btn-beli" onclick="window.location.href='transaksi.html'">⚡ Beli Sekarang</button>
+            </div>
+            <div class="product-card">
+                <h3>Promo - Telur Ayam Kampung (1 Kg)</h3>
+                <p>Peternak: Mandiri Farm (Kab Bogor)</p>
+                <p>Stok: 50 Pack</p>
+                <p class="price">Rp 30.000</p>
+                <button class="btn-beli" onclick="window.location.href='transaksi.html'">⚡ Beli Sekarang</button>
+            </div>
+            <div class="product-card">
+                <h3>Promo - Telur Puyuh (1 Kg)</h3>
+                <p>Peternak: Nusantara Farm (Kota Bogor)</p>
+                <p>Stok: 200 Tray</p>
+                <p class="price">Rp 35.000</p>
+                <button class="btn-beli" onclick="window.location.href='transaksi.html'">⚡ Beli Sekarang</button>
+            </div>
+            <div class="product-card">
+                <h3>Promo - Telur Ayam Omega 3 (1 Kg)</h3>
+                <p>Peternak: Sukses Farm (Kota Bogor)</p>
+                <p>Stok: Habis</p>
+                <p class="price">Rp 45.000</p>
+                <button class="btn-beli" style="background-color: #ccc; cursor: not-allowed;" disabled>❌ Stok Habis</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bg-light">
+        <h2 class="section-title">Mengapa Belanja di Ayam Telur Nusantara?</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🚚 Dari Peternak Langsung</h3>
+                <p>Kami memotong jalur rantai pasok konvensional (tengkulak). Telur dikirim langsung dari kandang peternak mitra kami ke tangan Anda.</p>
+            </div>
+            <div class="info-card">
+                <h3>🛡️ Kualitas Higienis</h3>
+                <p>Seluruh produk wajib melalui tahapan pengecekan (*Quality Control*) yang ketat sebelum dikemas untuk menjamin kesegaran pangan.</p>
+            </div>
+            <div class="info-card">
+                <h3>💰 Harga Transparan</h3>
+                <p>Tanpa biaya tersembunyi. Anda mendapatkan harga eceran terbaik, dan peternak mendapatkan keuntungan yang lebih layak.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bg-white">
+        <h2 class="section-title">Mitra Peternak Terbaik Bulan Ini</h2>
+        <p style="color: #777; margin-bottom: 30px;">Peternak dengan penilaian kepuasan pelanggan tertinggi berdasarkan kualitas dan kecepatan respon.</p>
+        <div class="farmer-grid">
+            <div class="farmer-card">
+                <h3>Nusantara Farm</h3>
+                <div class="stars">★★★★★</div>
+                <p><strong>4.9/5.0</strong> (2.400+ Penilaian)</p>
+                <p style="font-size: 13px; color: #666;">Spesialis Telur Negeri & Puyuh. Lokasi: Kota Bogor.</p>
+            </div>
+            <div class="farmer-card">
+                <h3>Mandiri Farm</h3>
+                <div class="stars">★★★★★</div>
+                <p><strong>4.8/5.0</strong> (1.100+ Penilaian)</p>
+                <p style="font-size: 13px; color: #666;">Spesialis Telur Ayam Kampung organik. Lokasi: Kab Bogor.</p>
+            </div>
+            <div class="farmer-card">
+                <h3>Sukses Farm</h3>
+                <div class="stars">★★★★☆</div>
+                <p><strong>4.7/5.0</strong> (850+ Penilaian)</p>
+                <p style="font-size: 13px; color: #666;">Spesialis Telur Omega 3 berkualitas tinggi. Lokasi: Tangerang.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bg-light">
+        <h2 class="section-title">Tentang Kami</h2>
+        <p class="about-text">
+            <strong>Telur Ayam Nusantara</strong> adalah platform marketplace digital yang mengintegrasikan rantai pasok peternakan ayam dan telur secara <i>end-to-end</i>. Kami hadir sebagai solusi inovatif atas inefisiensi distribusi pangan konvensional. Dengan mengedepankan teknologi digital, kami memberdayakan UMKM peternak lokal agar mampu bersaing dalam ekosistem perdagangan modern, sekaligus memberikan kenyamanan belanja kebutuhan pokok bagi masyarakat luas.
+        </p>
+    </section>
+
+    <section class="container bg-white">
+        <h2 class="section-title">Cara Belanja di Telur Ayam Nusantara</h2>
+        <div class="steps-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; text-align: center;">
+            <div class="step-item" style="width: 200px;">
+                <h3>1. Pilih Produk</h3>
+                <p>Pilih Telur Berkualitas di Katalog Kami Dan Klik Tombol Masukkan Keranjang (Beli).</p>
+            </div>
+            <div class="step-item" style="width: 200px;">
+                <h3>2. Isi Keranjang</h3>
+                <p>Periksa Kembali Pesanan Anda di Dalam Keranjang Belanja.</p>
+            </div>
+            <div class="step-item" style="width: 200px;">
+                <h3>3. Pembayaran</h3>
+                <p>Lakukan Pembayaran Melalui Metode Yang Tersedia Dan Terima Invoice.</p>
+            </div>
+            <div class="step-item" style="width: 200px;">
+            <h3>4. Lacak Pesanan</h3>
+            <p>Gunakan nomor pesanan dari struk belanja Anda untuk memantau pengiriman.</p>
+            <!-- TAMBAHAN: Tombol untuk memicu fitur tracking -->
+            <button onclick="lacakTelur()" style="background-color: #ff9800; color: white; border: none; padding: 5px 10px; border-radius: 0px; cursor: pointer; font-weight: bold; margin-top: 2px; font-size: 13px;">🎯 Cek Resi / Pesanan</button>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Agus Pian Pracahyo - 251011750187 &copy;</p>
+        <p>Promo: Follow IG & TikTok Kami Untuk Flash Sale Spesial!</p>
+    </footer>
+
+    <script>
+function lacakTelur() {
+    // 1. Meminta pengguna memasukkan nomor pesanan bebas
+    let noPesanan = prompt("Masukkan Nomor Pesanan Anda:\n(Contoh: 0123456789)");
+    
+    // 2. Validasi jika pengguna tidak mengisi atau menekan cancel
+    if (noPesanan === null || noPesanan.trim() === "") {
+        alert("Nomor pesanan tidak boleh kosong!");
+        return;
+    }
+    
+    // 3. Menampilkan status pelacakan simulasi yang terlihat profesional
+    alert(
+        "📦 STATUS PELACAKAN TELUR\n" +
+        "----------------------------------------\n" +
+        "No. Pesanan : " + noPesanan + "\n" +
+        "Kurir       : Ekspedisi Ekspres/Kilat\n" +
+        "Status      : [ON PROCESS] 🚚\n\n" +
+        "Keterangan:\n" +
+        "Telur Segar Sedang Dalam Perjalanan Oleh Kurir Menuju Alamat Anda. Mohon Pastikan Ada Orang di Rumah Untuk Menerima Paket."
+    );
+}
+</script>
+</body>
+</html>

@@ -52,19 +52,49 @@
         /* Grid Produk */
         .product-grid, .info-grid, .farmer-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         
+        /* --- STYLING KARTU PRODUK (PRODUCT CARD) --- */
         .product-card { 
-            background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; width: 220px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white; 
+            border: 1px solid #e0e0e0; 
+            border-radius: 12px; /* Sudut kartu dibuat lebih melengkung agar modern */
+            padding: 20px; 
+            width: 250px; 
+            /* Flexbox agar isi kartu (judul, harga, tombol) tersusun rapi */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            /* Transisi halus saat kursor menyentuh kartu */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
         }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-        .product-card h3 { margin: 10px 0; color: #333; font-size: 18px; }
-        .product-card p { color: #777; font-size: 14px; margin: 5px 0; }
-        .price { color: #e65100; font-size: 20px; font-weight: bold; margin: 10px 0; }
-        
-        .btn-beli { background-color: #4CAF50; color: white; padding: 10px; border: none; width: 100%; border-radius: 5px; cursor: pointer; margin-top: 10px; font-weight: bold; transition: background 0.3s; }
-        .btn-beli:hover { background-color: #45a049; }
 
+        /* Efek melayang saat kursor berada di atas kartu produk */
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15); 
+        }
+
+        /* --- STYLING TOMBOL BELI / KERANJANG --- */
+        .btn-beli { 
+            background-color: #4CAF50; /* Warna hijau khas tombol beli */
+            color: white; 
+            padding: 12px; 
+            border: none; 
+            width: 100%; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            margin-top: 15px; 
+            font-weight: bold; 
+            font-size: 14px;
+            /* Ini kuncinya: Transisi warna dan ukuran yang sangat halus */
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+        }
+
+        /* Efek saat tombol "Masukkan Keranjang" disentuh kursor */
+        .btn-beli:hover { 
+            background-color: #388E3C; /* Hijau berubah sedikit lebih gelap */
+            transform: scale(1.03); /* Tombol membesar sedikit (3%) seolah ditekan */
+        }
         /* Info & Keunggulan Card */
         .info-card { background: white; padding: 20px; border-radius: 8px; width: 280px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #ff9800; }
         .info-card h3 { color: #e65100; margin-top: 0; }
